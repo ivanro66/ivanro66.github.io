@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dulce Aroma</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="branding">
+      <img src="logo.png" alt="Logo Dulce Aroma" />
+      <span class="nombre">Dulce Aroma</span>
+    </div>
+    <nav class="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#pedidos">Pedidos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="contenido">
+      <h1>Bienvenido a Dulce Aroma</h1>
+      <p class="frase">El sabor que despierta tus mañanas</p>
+      <p class="descripcion">
+        En Dulce Aroma, cada pan, torta y galleta es una obra artesanal hecha con amor. 
+        Nos apasiona llenar tus días de aroma fresco y sabor auténtico. 
+        ¡Descubre el placer de lo hecho en casa!
+      </p>
+    </section>
+
+    <section id="productos" class="productos">
+      <h2>Nuestros productos</h2>
+      <p>Pan artesanal, croissants, galletas, tortas y más...</p>
+      <div class="galeria-productos">
+        <div class="producto">
+          <img src="pan-artesanal.jpg" alt="Pan artesanal" />
+          <p>Pan rústico con masa madre, crujiente por fuera y suave por dentro.</p>
+        </div>
+        <div class="producto">
+          <img src="croissant.jpg" alt="Croissant" />
+          <p>Delicados croissants de mantequilla, perfectos para el desayuno.</p>
+        </div>
+        <div class="producto">
+          <img src="galletas.jpg" alt="Galletas" />
+          <p>Galletas caseras con chispas de chocolate y avena.</p>
+        </div>
+        <div class="producto">
+          <img src="tarta-frutas.jpg" alt="Tarta de frutas" />
+          <p>Tarta fresca con frutas de temporada y crema pastelera.</p>
+        </div>
+        <div class="producto">
+          <img src="cheesecake.jpg" alt="Cheesecake" />
+          <p>Cheesecake cremoso con base de galleta y coulis de fresa.</p>
+        </div>
+        <div class="producto">
+          <img src="brownies.jpg" alt="Brownies" />
+          <p>Brownies intensos de chocolate con nueces tostadas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pedidos" class="pedidos">
+      <h2>Pedidos</h2>
+      <p>Entregamos en San Fernando y zonas cercanas. ¡Contáctanos!</p>
+      <p class="descripcion">
+        Puedes hacer tu pedido por WhatsApp o redes sociales. Nuestro servicio de entrega es rápido, seguro y sin costo adicional dentro del casco central.
+      </p>
+      <a href="#contacto" class="boton-pedido">Haz tu pedido</a>
+    </section>
+
+    <section class="mapa">
+      <h2>Ubicación</h2>
+      <p>Nos encontramos frente a la plaza Bolívar, San Fernando.</p>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.123456789!2d-67.597123!3d7.894321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e7e5b123456789%3A0xabcdef123456789!2sPlaza%20Bol%C3%ADvar%2C%20San%20Fernando%2C%20Apure!5e0!3m2!1ses!2sve!4v1700000000000"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div class="footer-contenido">
+      <div class="footer-info">
+        <p>📍 Calle Comercio, frente a la plaza Bolívar, San Fernando</p>
+        <p>📞 +58 424 1234567</p>
+        <p>📧 contacto@dulcearoma.com</p>
+        <p>🕒 Lunes a sábado, 7:00 a.m. – 6:00 p.m.</p>
+      </div>
+
+      <div class="footer-redes">
+        <img src="logo.png" alt="Logo Dulce Aroma" class="footer-logo" />
+        <div class="redes">
+          <a href="https://instagram.com/dulcearoma" target="_blank">
+            <img src="instagram-icon.png" alt="Instagram" />
+          </a>
+          <a href="https://facebook.com/dulcearoma" target="_blank">
+            <img src="facebook-icon.png" alt="Facebook" />
+          </a>
+          <a href="https://youtube.com/@dulcearoma" target="_blank">
+            <img src="youtube-icon.png" alt="YouTube" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="gracias">Gracias por visitarnos</p>
+    <p class="autor">Sitio desarrollado por <a href="https://github.com/ivanro66" target="_blank">Iván Alejandro Romero</a></p>
+  </footer>
+
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="boton-subir" title="Volver arriba">↑</button>
+</body>
+</html>

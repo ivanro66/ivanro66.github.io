@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iván Alejandro Romero | Portafolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="branding">
+      <img src="ivanro-dev.png" alt="Logo personal" class="logo-principal" />
+      <span class="nombre">Iván Alejandro Romero</span>
+    </div>
+    <nav class="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="contenido">
+      <h1>Diseñador Web & Desarrollador Frontend</h1>
+      <p class="frase">Experiencias digitales hermosas y funcionales</p>
+      <p class="descripcion">
+        Soy Iván Alejandro Romero, apasionado por el diseño web, la automatización y la estructura profesional. Aquí encontrarás mis proyectos más destacados, desarrollados con atención al detalle y enfoque funcional.
+      </p>
+    </section>
+
+    <section id="proyectos" class="proyectos">
+      <h2>Mis Proyectos</h2>
+      <div class="tarjetas">
+        <a href="dulce-aroma/index.html" class="tarjeta">
+          <img src="dulce-aroma/logo.png" alt="Dulce Aroma" />
+          <h3>Dulce Aroma</h3>
+          <p>Landing page para panadería artesanal con diseño visual y navegación optimizada.</p>
+        </a>
+        <a href="https://github.com/ivanro66/celita" class="tarjeta" target="_blank">
+          <img src="celita/logo-celita.png" alt="CELITA" />
+          <h3>CELITA</h3>
+          <p>Sistema de asistencia desarrollado en Python para la Fundación El Niño Simón Apure.</p>
+        </a>
+        <a href="titan-burn/index.html" class="tarjeta">
+          <img src="titan-burn/assets/titan-burn.png" alt="Titan Burn" />
+          <h3>Titan Burn</h3>
+          <p>Experiencia visual intensa con animaciones decorativas, efectos interactivos y narrativa digital.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="contacto" class="contenido">
+      <h2>Contacto</h2>
+      <p>Email: <a href="mailto:ivanrodeveloper@gmail.com">ivanrodeveloper@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/ivanro66" target="_blank">github.com/ivanro66</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="gracias">Gracias por visitar mi portafolio</p>
+    <p class="autor">Sitio desarrollado por Iván Alejandro Romero</p>
+  </footer>
+
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="boton-subir" title="Volver arriba">↑</button>
+
+  <!-- Efecto Matrix -->
+  <canvas id="matrix"></canvas>
+  <script>
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = document.body.scrollHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    const letters = "01";
+    const fontSize = 16;
+    const columns = Math.floor(window.innerWidth / fontSize);
+    const drops = Array(columns).fill(1);
+    let nameFade = [];
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+
+        if (Math.random() < 0.01) {
+          nameFade.push({ text: "Iván Romero Developer", x, y, opacity: 1 });
+        }
+
+        ctx.fillStyle = "#d4af37";
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, x, y);
+
+        drops[i]++;
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+      }
+
+      nameFade.forEach((item, index) => {
+        ctx.fillStyle = `rgba(17, 17, 17, ${item.opacity})`;
+        ctx.fillText(item.text, item.x, item.y);
+        item.opacity -= 0.015;
+        if (item.opacity <= 0) nameFade.splice(index, 1);
+      });
+    }
+
+    setInterval(drawMatrix, 50);
+  </script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('fondo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: #333;
+}
+
+/* Header */
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.branding img {
+  width: 84px;
+  height: 84px;
+}
+
+.nombre {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(255,255,255,0.1));
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.menu a:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(0,0,0,0.6));
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Secciones */
+section {
+  padding: 3rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 2rem auto;
+  max-width: 1000px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.frase {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Galería de productos optimizada */
+.galeria-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.producto {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.producto:hover {
+  transform: scale(1.05) rotate(-0.5deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.1);
+}
+
+/* Botón interactivo para pedidos */
+.boton-pedido {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #ff8c00, #ffb347);
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-pedido:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* Mapa fuera del footer */
+.mapa {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 2rem auto;
+  max-width: 1000px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.mapa iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+/* Footer compacto y distribuido */
+.footer {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-top: 2px solid #ff8c00;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-info {
+  text-align: left;
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-info p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.footer-redes {
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-logo {
+  width: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.redes img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.redes img:hover {
+  transform: scale(1.2);
+}
+
+.gracias {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.autor {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.autor a {
+  color: #ffb347;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.autor a:hover {
+  text-decoration: underline;
+}
+
+/* Botón flotante para subir */
+.boton-subir {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.boton-subir:hover {
+  background-color: #e67600;
+  transform: scale(1.1);
+}

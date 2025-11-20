@@ -1,0 +1,22 @@
+📄 SISTEMA DE ASISTENCIA CELITA
+Versión 1.0 | Desarrollado por T.S.U. Iván Romero
+Dirección de Tecnología e Informática
+Fundación Regional El Niño Simón Apure
+
+🔧 REQUISITOS:
+- Sistema operativo: Windows 10 o superior
+- No requiere instalación de Python
+- No requiere conexión a internet
+
+🚀 INSTRUCCIONES DE USO:
+1. Abrir la carpeta "SistemaAsistencia"
+2. Ejecutar el archivo "main.exe" con doble clic
+3. Iniciar sesión como "admin" o "soporte" (según configuración)
+4. Usar el sistema normalmente: registrar asistencia, generar reportes, etc.
+
+📁 IMPORTANTE:
+- No borrar las carpetas "recursos", "base_datos", ni los archivos .csv
+- Si el sistema no abre, verificar que el antivirus no esté bloqueando el ejecutable
+
+💬 SOPORTE:
+Para asistencia técnica, contactar a la Dirección de Tecnología
