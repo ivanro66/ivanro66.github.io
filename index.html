@@ -8,10 +8,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="branding">
-      <img src="ivanro-dev.png" alt="Logo personal" class="logo-principal" />
-      <span class="nombre">Iván Alejandro Romero</span>
-    </div>
+    <span class="nombre">Iván Alejandro Romero</span>
     <nav class="menu">
       <a href="#inicio">Inicio</a>
       <a href="#proyectos">Proyectos</a>
@@ -21,6 +18,9 @@
 
   <main>
     <section id="inicio" class="contenido">
+      <div class="logo-inicio">
+        <img src="ivanro-dev.png" alt="Logo IVANRO DEV" />
+      </div>
       <h1>Diseñador Web & Desarrollador Frontend</h1>
       <p class="frase">Experiencias digitales hermosas y funcionales</p>
       <p class="descripcion">
@@ -32,19 +32,25 @@
       <h2>Mis Proyectos</h2>
       <div class="tarjetas">
         <a href="dulce-aroma/index.html" class="tarjeta">
-          <img src="dulce-aroma/logo.png" alt="Dulce Aroma" />
-          <h3>Dulce Aroma</h3>
-          <p>Landing page para panadería artesanal con diseño visual y navegación optimizada.</p>
+          <div class="tarjeta-contenido">
+            <img src="dulce-aroma/logo.png" alt="Dulce Aroma" />
+            <h3>Dulce Aroma</h3>
+            <p>Landing page para panadería artesanal con diseño visual y navegación optimizada.</p>
+          </div>
         </a>
         <a href="https://github.com/ivanro66/celita" class="tarjeta" target="_blank">
-          <img src="celita/logo-celita.png" alt="CELITA" />
-          <h3>CELITA</h3>
-          <p>Sistema de asistencia desarrollado en Python para la Fundación El Niño Simón Apure.</p>
+          <div class="tarjeta-contenido">
+            <img src="celita/logo-celita.png" alt="CELITA" />
+            <h3>CELITA</h3>
+            <p>Sistema de asistencia desarrollado en Python para la Fundación El Niño Simón Apure.</p>
+          </div>
         </a>
         <a href="titan-burn/index.html" class="tarjeta">
-          <img src="titan-burn/assets/titan-burn.png" alt="Titan Burn" />
-          <h3>Titan Burn</h3>
-          <p>Experiencia visual intensa con animaciones decorativas, efectos interactivos y narrativa digital.</p>
+          <div class="tarjeta-contenido">
+            <img src="titan-burn/assets/titan-burn.png" alt="Titan Burn" />
+            <h3>Titan Burn</h3>
+            <p>Experiencia visual intensa con animaciones decorativas, efectos interactivos y narrativa digital.</p>
+          </div>
         </a>
       </div>
     </section>

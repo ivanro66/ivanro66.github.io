@@ -1,4 +1,4 @@
-/* Reset básico */
+/* === RESET BÁSICO === */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +14,7 @@ body {
   z-index: 0;
 }
 
-/* Header */
+/* === HEADER SIMPLIFICADO === */
 .header {
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -26,17 +26,6 @@ body {
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
-}
-
-.branding {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.logo-principal {
-  width: 60px;
-  height: 60px;
 }
 
 .nombre {
@@ -64,7 +53,20 @@ body {
   border-bottom: 2px solid #d4af37;
 }
 
-/* Secciones */
+/* === LOGO EN INICIO === */
+.logo-inicio {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.logo-inicio img {
+  width: 190px;
+  height: auto;
+  opacity: 0.95;
+}
+
+/* === SECCIONES GENERALES === */
 section {
   padding: 3rem 1.5rem;
   max-width: 1000px;
@@ -88,8 +90,8 @@ section {
   color: #333;
 }
 
-/* Tarjetas de proyectos */
-.proyectos .tarjetas {
+/* === TARJETAS DE PROYECTOS === */
+.tarjetas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -109,7 +111,7 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .tarjeta:hover {
@@ -117,14 +119,34 @@ section {
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
+.tarjeta-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
 .tarjeta img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
   margin-bottom: 1rem;
 }
 
-/* Footer */
+.tarjeta h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #d4af37;
+}
+
+.tarjeta p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* === FOOTER === */
 .footer {
   background-color: #f9f9f9;
   text-align: center;
@@ -145,7 +167,7 @@ section {
   font-size: 0.9rem;
 }
 
-/* Botón flotante */
+/* === BOTÓN FLOTANTE === */
 .boton-subir {
   position: fixed;
   bottom: 20px;
@@ -168,7 +190,7 @@ section {
   transform: scale(1.1);
 }
 
-/* Canvas Matrix */
+/* === CANVAS MATRIX === */
 #matrix {
   position: absolute;
   top: 0;
@@ -178,25 +200,86 @@ section {
   pointer-events: none;
 }
 
-/* Responsive */
+/* === RESPONSIVE PARA MÓVILES === */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .nombre {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
 
   .menu {
     justify-content: center;
     width: 100%;
-    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .menu a {
+    font-size: 0.95rem;
+    padding-bottom: 2px;
+  }
+
+  .logo-inicio img {
+    width: 70px;
+    height: auto;
+  }
+
+  #inicio h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .frase {
+    font-size: 1.1rem;
+  }
+
+  .descripcion {
+    font-size: 0.95rem;
+    max-width: 90%;
   }
 
   .tarjetas {
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
   }
 
   .tarjeta {
     width: 90%;
+    padding: 1rem;
+  }
+
+  .tarjeta img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tarjeta h3 {
+    font-size: 1.1rem;
+  }
+
+  .tarjeta p {
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .boton-subir {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    bottom: 15px;
+    right: 15px;
   }
 }
