@@ -8,14 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <!-- Lata flotante para escritorio -->
-  <div class="lata">
-    <img src="assets/titan-burn.png" alt="Titan Burn">
+  <!-- Lata flotante SOLO escritorio -->
+  <div class="lata escritorio-only" aria-hidden="true">
+    <img src="assets/titan-burn.png" alt="Lata Titan Burn" />
   </div>
 
-  <header>
+  <header class="header">
     <div class="logo">TITAN <span class="burn">BURN</span></div>
-    <nav>
+    <nav class="menu">
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Producto</a></li>
@@ -28,19 +28,25 @@
     <!-- INTRO -->
     <section class="slide intro">
       <div id="particles-js"></div>
+
+      <!-- Lata para móvil -->
       <div class="lata-mobile">
-        <img src="assets/titan-burn.png" alt="Titan Burn">
+        <img src="assets/titan-burn.png" alt="Lata Titan Burn" />
       </div>
+
       <div class="content">
         <h1>Descubre el poder de lo inesperado</h1>
-        <p>Llega <strong>Titan Burn</strong>, la nueva bebida energética que redefine lo que significa refrescarte, activarte y saborear el momento.</p>
+        <p>
+          Llega <strong>Titan Burn</strong>, la nueva bebida energética que redefine lo que significa refrescarte,
+          activarte y saborear el momento.
+        </p>
       </div>
     </section>
 
     <!-- HIELO -->
     <section class="slide hielo">
-      <div class="cubos"></div>
-      <div class="nieve">
+      <div class="cubos" aria-hidden="true"></div>
+      <div class="nieve" aria-hidden="true">
         <!-- 30 copos -->
         <span></span><span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span><span></span>
@@ -49,21 +55,30 @@
         <span></span><span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span><span></span>
       </div>
+
+      <!-- Lata para móvil -->
       <div class="lata-mobile">
-        <img src="assets/titan-burn.png" alt="Titan Burn">
+        <img src="assets/titan-burn.png" alt="Lata Titan Burn" />
       </div>
+
       <div class="content">
         <h1>Refresca tu mundo</h1>
-        <p>Cuando el calor abruma, Titan Burn responde con una ola helada. Su fórmula ultra fría no solo sacia: <em>revive</em>.</p>
+        <p>
+          Cuando el calor abruma, Titan Burn responde con una ola helada. Su fórmula ultra fría no solo sacia:
+          <em>revive</em>.
+        </p>
       </div>
     </section>
 
     <!-- TROPICAL -->
     <section class="slide tropical">
-      <div class="frutas"></div>
+      <div class="frutas" aria-hidden="true"></div>
+
+      <!-- Lata para móvil -->
       <div class="lata-mobile">
-        <img src="assets/titan-burn.png" alt="Titan Burn">
+        <img src="assets/titan-burn.png" alt="Lata Titan Burn" />
       </div>
+
       <div class="content">
         <h1>Sabor tropical que enciende tus sentidos</h1>
         <p>Explosión de frutas, energía vibrante y frescura que te transporta al paraíso.</p>
@@ -72,10 +87,13 @@
 
     <!-- BURN -->
     <section class="slide burn">
-      <div class="brasas"></div>
+      <div class="brasas" aria-hidden="true"></div>
+
+      <!-- Lata para móvil -->
       <div class="lata-mobile">
-        <img src="assets/titan-burn.png" alt="Titan Burn">
+        <img src="assets/titan-burn.png" alt="Lata Titan Burn" />
       </div>
+
       <div class="content">
         <h1>Desata tu energía interior y conquista cada reto</h1>
         <p>Potencia tu rendimiento físico y mental con cada sorbo ardiente de Titan Burn.</p>
@@ -85,8 +103,8 @@
 
   <!-- Botones de navegación -->
   <div class="nav-buttons">
-    <button id="prev">&#8592;</button>
-    <button id="next">&#8594;</button>
+    <button id="prev" aria-label="Anterior">&#8592;</button>
+    <button id="next" aria-label="Siguiente">&#8594;</button>
   </div>
 
   <!-- Footer -->
@@ -94,9 +112,9 @@
     <div class="footer-content">
       <p>Contacto: contacto@titanburn.com</p>
       <div class="redes">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="X/Twitter"><i class="fab fa-x-twitter"></i></a>
       </div>
       <p>&copy; 2025 Titan Burn. Todos los derechos reservados.</p>
     </div>

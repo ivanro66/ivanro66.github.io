@@ -9,8 +9,9 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
   background-color: #000;
+  /* Permitir scroll vertical y evitar scroll horizontal por el slider */
+  overflow-x: hidden;
 }
 
 /* === HEADER === */
@@ -18,7 +19,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  min-height: 60px; /* flexible para no cortar contenido */
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
   display: flex;
@@ -66,17 +67,17 @@ nav a:hover {
 }
 
 @keyframes vibrar {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); }
-  75% { transform: translateX(-1px); }
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-2px); }
+  50%  { transform: translateX(2px); }
+  75%  { transform: translateX(-1px); }
   100% { transform: translateX(0); }
 }
 
 /* === SLIDER PRINCIPAL === */
 .slider {
   display: flex;
-  width: 400vw; /* Ahora son 4 secciones intro, hielo, tropical y burn */
+  width: 400vw; /* 4 secciones */
   height: 100vh;
   transition: transform 0.8s ease-in-out;
   z-index: 1;
@@ -95,27 +96,32 @@ nav a:hover {
   background-position: center;
 }
 
-.intro {
-  background-color: #000;
-}
+.intro { background-color: #000; }
 
 .intro #particles-js {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 0; /* detrás de todo */
 }
 
 .hielo {
   background-image: url('assets/fondo-hielo.jpg');
 }
 
+/* === CAPAS === */
+/* Fondo < efectos (nieve/cubos/brasas) < contenido < UI fija (header/footer/nav-buttons) */
+#particles-js { z-index: 0; }
+.nieve, .cubos, .frutas, .brasas { z-index: 1; }
+.content { z-index: 10; }
+.nav-buttons { z-index: 50; }
+header, footer { z-index: 100; }
+
 /* === CONTENIDO DE SECCIONES === */
 .content {
   max-width: 600px;
   color: #fff;
   text-align: left;
-  z-index: 10;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 1s ease forwards;
@@ -132,14 +138,8 @@ nav a:hover {
   line-height: 1.6;
 }
 
-.hielo .content h1 {
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-.hielo .content p {
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
+.hielo .content h1 { text-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
+.hielo .content p  { text-shadow: 0 0 6px rgba(0, 0, 0, 0.3); }
 
 /* === BOTONES DE NAVEGACIÓN === */
 .nav-buttons {
@@ -152,10 +152,12 @@ nav a:hover {
   padding: 0 20px;
   transform: translateY(-50%);
   z-index: 50;
+  pointer-events: none; /* La capa no captura eventos */
 }
 
 .nav-buttons button {
-  background: none; /* Eliminamos el fondo oscuro */
+  pointer-events: auto; /* Los botones sí capturan eventos */
+  background: none;
   color: #fff;
   border: none;
   font-size: 2.5rem;
@@ -171,6 +173,7 @@ nav a:hover {
     0 0 10px #ff6a00,
     0 0 20px #ff0000;
 }
+
 /* === FOOTER === */
 footer {
   position: fixed;
@@ -225,8 +228,8 @@ footer {
   overflow: hidden;
   top: 0;
   left: 0;
-  z-index: 1;
   pointer-events: none;
+  will-change: transform;
 }
 
 .nieve span {
@@ -256,24 +259,20 @@ footer {
 }
 
 @keyframes caer {
-  0% {
-    transform: translateY(-10px) translateX(0);
-  }
-  100% {
-    transform: translateY(110vh) translateX(30px);
-  }
+  0%   { transform: translateY(-10px) translateX(0); }
+  100% { transform: translateY(110vh) translateX(30px); }
 }
 
 /* === POSICIONES ALEATORIAS DE COPOS === */
-.nieve span:nth-child(1) { left: 5%; animation-delay: 0s; }
-.nieve span:nth-child(2) { left: 10%; animation-delay: 2s; }
-.nieve span:nth-child(3) { left: 15%; animation-delay: 4s; }
-.nieve span:nth-child(4) { left: 20%; animation-delay: 1s; }
-.nieve span:nth-child(5) { left: 25%; animation-delay: 3s; }
-.nieve span:nth-child(6) { left: 30%; animation-delay: 5s; }
-.nieve span:nth-child(7) { left: 35%; animation-delay: 2s; }
-.nieve span:nth-child(8) { left: 40%; animation-delay: 4s; }
-.nieve span:nth-child(9) { left: 45%; animation-delay: 1s; }
+.nieve span:nth-child(1)  { left: 5%;  animation-delay: 0s; }
+.nieve span:nth-child(2)  { left: 10%; animation-delay: 2s; }
+.nieve span:nth-child(3)  { left: 15%; animation-delay: 4s; }
+.nieve span:nth-child(4)  { left: 20%; animation-delay: 1s; }
+.nieve span:nth-child(5)  { left: 25%; animation-delay: 3s; }
+.nieve span:nth-child(6)  { left: 30%; animation-delay: 5s; }
+.nieve span:nth-child(7)  { left: 35%; animation-delay: 2s; }
+.nieve span:nth-child(8)  { left: 40%; animation-delay: 4s; }
+.nieve span:nth-child(9)  { left: 45%; animation-delay: 1s; }
 .nieve span:nth-child(10) { left: 50%; animation-delay: 3s; }
 .nieve span:nth-child(11) { left: 55%; animation-delay: 0s; }
 .nieve span:nth-child(12) { left: 60%; animation-delay: 2s; }
@@ -285,8 +284,8 @@ footer {
 .nieve span:nth-child(18) { left: 90%; animation-delay: 4s; }
 .nieve span:nth-child(19) { left: 95%; animation-delay: 1s; }
 .nieve span:nth-child(20) { left: 98%; animation-delay: 3s; }
-.nieve span:nth-child(21) { left: 3%; animation-delay: 2s; }
-.nieve span:nth-child(22) { left: 8%; animation-delay: 4s; }
+.nieve span:nth-child(21) { left: 3%;  animation-delay: 2s; }
+.nieve span:nth-child(22) { left: 8%;  animation-delay: 4s; }
 .nieve span:nth-child(23) { left: 13%; animation-delay: 1s; }
 .nieve span:nth-child(24) { left: 18%; animation-delay: 3s; }
 .nieve span:nth-child(25) { left: 23%; animation-delay: 5s; }
@@ -296,8 +295,7 @@ footer {
 .nieve span:nth-child(29) { left: 43%; animation-delay: 3s; }
 .nieve span:nth-child(30) { left: 48%; animation-delay: 5s; }
 
-/* Style para tropical */
-
+/* === TROPICAL === */
 .tropical {
   background-image: url('assets/fondo-tropical.png');
   background-size: cover;
@@ -311,8 +309,8 @@ footer {
   top: 0;
   left: 0;
   overflow: hidden;
-  z-index: 1;
   pointer-events: none;
+  z-index: 1;
 }
 
 .fruta {
@@ -322,18 +320,14 @@ footer {
 }
 
 @keyframes flotar {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-20px) rotate(5deg); }
   100% { transform: translateY(0) rotate(0deg); }
 }
 
+.fruta.mango { filter: drop-shadow(0 0 6px rgba(0,0,0,0.5)); }
 
-.fruta.mango {
-  filter: drop-shadow(0 0 6px rgba(0,0,0,0.5));
-}
-
-/* Burn */
-
+/* === BURN === */
 .slide.burn {
   background-image: url('assets/fondo-burn.png');
   background-size: cover;
@@ -341,7 +335,6 @@ footer {
 }
 
 /* Cubos */
-
 .cubos {
   position: absolute;
   width: 100%;
@@ -349,8 +342,8 @@ footer {
   top: 0;
   left: 0;
   overflow: hidden;
-  z-index: 1;
   pointer-events: none;
+  z-index: 1;
 }
 
 .cubo {
@@ -359,8 +352,7 @@ footer {
   will-change: transform;
 }
 
-/* === Animaciones decorativas para sección burn === */
-
+/* Decorativo calor en burn */
 .burn::after {
   content: '';
   position: absolute;
@@ -373,8 +365,8 @@ footer {
 }
 
 @keyframes calor {
-  0%, 100% { transform: scale(1); filter: blur(0px); }
-  50% { transform: scale(1.02); filter: blur(2px); }
+  0%, 100% { transform: scale(1); filter: blur(0); }
+  50%      { transform: scale(1.02); filter: blur(2px); }
 }
 
 .brasas {
@@ -398,14 +390,8 @@ footer {
 }
 
 @keyframes subir {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-100vh) scale(0.5);
-    opacity: 0;
-  }
+  0%   { transform: translateY(0) scale(1);   opacity: 0.8; }
+  100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
 }
 
 .destello {
@@ -419,15 +405,44 @@ footer {
 }
 
 @keyframes destello {
-  0% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1.2); }
+  0%   { opacity: 0; transform: scale(0.5); }
+  50%  { opacity: 1; transform: scale(1.2); }
   100% { opacity: 0; transform: scale(0.5); }
 }
 
+/* === LATA FLOTANTE EN ESCRITORIO === */
+.lata,
+.lata.escritorio-only { /* soporta ambos casos */
+  position: fixed;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: clamp(280px, 34vw, 420px);
+  max-height: calc(100vh - 160px); /* límite visual entre header y footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* no interfiere con clics */
+}
+
+.lata img { width: 100%; height: auto; display: block; }
+
+/* === RESPONSIVE MÓVIL === */
 @media (max-width: 768px) {
+  /* Header compacto y notch-safe */
+  header {
+    padding: env(safe-area-inset-top) 16px 8px 16px;
+    min-height: 56px;
+  }
+
+  .logo { font-size: 1.25rem; }
+  nav ul { gap: 12px; }
+
   /* Ocultar lata flotante en móviles */
-  .lata {
-    display: none;
+  .lata,
+  .lata.escritorio-only {
+    display: none !important;
   }
 
   /* Mostrar lata centrada arriba del texto */
@@ -455,6 +470,8 @@ footer {
     text-align: center;
     z-index: 10;
     position: relative;
+    /* dejar espacio para footer fijo */
+    margin-bottom: 64px;
   }
 
   .content h1 {
@@ -468,45 +485,14 @@ footer {
   }
 
   /* Ocultar flechas en móviles */
-  .nav-buttons {
-    display: none;
-  }
+  .nav-buttons { display: none; }
 
   /* Footer compacto */
-  footer {
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .redes a {
-    font-size: 1.2rem;
-  }
-}
-
-/* === LATA FLOTANTE EN ESCRITORIO === */
-.lata {
-  position: fixed;
-  top: 50%;
-  left: 4%;
-  transform: translateY(-50%);
-  z-index: 20;
-  width: clamp(280px, 34vw, 420px);
-  max-height: calc(100vh - 160px); /* ← límite visual entre header y footer */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none; /* evita que interfiera con clics */
-}
-
-.lata img {
-  width: 100%;
-  height: auto;
-  display: block;
+  footer { padding: 1rem; font-size: 0.9rem; }
+  .redes a { font-size: 1.2rem; }
 }
 
 /* === OCULTAR lata-mobile en escritorio === */
 @media (min-width: 769px) {
-  .lata-mobile {
-    display: none;
-  }
+  .lata-mobile { display: none; }
 }
