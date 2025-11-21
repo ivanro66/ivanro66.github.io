@@ -258,3 +258,57 @@ section {
   background-color: #e67600;
   transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .branding {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .branding img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .nombre {
+    font-size: 1.1rem;
+    text-shadow: none;
+    color: #fff;
+  }
+
+  .menu {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    scrollbar-width: none;
+  }
+
+  .menu a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    box-shadow: none;
+  }
+
+  body {
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+  }
+}
