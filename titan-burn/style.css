@@ -140,25 +140,6 @@ nav a:hover {
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-/* === LATA FLOTANTE === */
-.lata {
-  position: fixed;
-  top: 50%;
-  right: 12%;
-  transform: translateY(-50%);
-  z-index: 20;
-  width: 26vw;
-  max-width: 280px;
-  opacity: 0;
-  animation: slideInRight 1s ease forwards;
-  animation-delay: 1s;
-}
-
-.lata img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
 
 /* === BOTONES DE NAVEGACIÓN === */
 .nav-buttons {
@@ -441,4 +422,91 @@ footer {
   0% { opacity: 0; transform: scale(0.5); }
   50% { opacity: 1; transform: scale(1.2); }
   100% { opacity: 0; transform: scale(0.5); }
+}
+
+@media (max-width: 768px) {
+  /* Ocultar lata flotante en móviles */
+  .lata {
+    display: none;
+  }
+
+  /* Mostrar lata centrada arriba del texto */
+  .lata-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 1rem auto;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .lata-mobile img {
+    width: 40vw;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Ajuste del texto para evitar solapamiento */
+  .content {
+    max-width: 92%;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+  }
+
+  .content h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Ocultar flechas en móviles */
+  .nav-buttons {
+    display: none;
+  }
+
+  /* Footer compacto */
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .redes a {
+    font-size: 1.2rem;
+  }
+}
+
+/* === LATA FLOTANTE EN ESCRITORIO === */
+.lata {
+  position: fixed;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: clamp(280px, 34vw, 420px);
+  max-height: calc(100vh - 160px); /* ← límite visual entre header y footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* evita que interfiera con clics */
+}
+
+.lata img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* === OCULTAR lata-mobile en escritorio === */
+@media (min-width: 769px) {
+  .lata-mobile {
+    display: none;
+  }
 }

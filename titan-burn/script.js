@@ -1,20 +1,34 @@
+// === Detección de dispositivo ===
+function esMovil() {
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+// === Pausar animaciones si la pestaña no está activa ===
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    cancelAnimationFrame(animFrutas);
+    cancelAnimationFrame(animCubos);
+  } else {
+    animateFrutas();
+    animateCubos();
+  }
+});
+
 // === Partículas interactivas ===
+const cantidadParticulas = esMovil() ? 40 : 80;
+
 tsParticles.load("particles-js", {
   fullScreen: { enable: false },
   particles: {
-    number: { value: 80 },
+    number: { value: cantidadParticulas },
     size: { value: 3 },
     move: { enable: true, speed: 1 },
     color: { value: "#ffffff" },
     links: { enable: true, color: "#ffffff" },
   },
   interactivity: {
-    events: {
-      onHover: { enable: true, mode: "repulse" },
-    },
-    modes: {
-      repulse: { distance: 100 },
-    },
+    events: { onHover: { enable: true, mode: "repulse" } },
+    modes: { repulse: { distance: 100 } },
   },
 });
 
@@ -60,7 +74,7 @@ const frutaSources = [
 ];
 
 const frutasContainer = document.querySelector('.frutas');
-const totalFrutas = 14;
+const totalFrutas = esMovil() ? 6 : 14;
 const frutas = [];
 
 for (let i = 0; i < totalFrutas; i++) {
@@ -87,6 +101,7 @@ for (let i = 0; i < totalFrutas; i++) {
   });
 }
 
+let animFrutas;
 function animateFrutas() {
   frutas.forEach(f => {
     f.x += f.dx;
@@ -101,9 +116,8 @@ function animateFrutas() {
     f.el.style.transform = `rotate(${f.rotation}deg)`;
   });
 
-  requestAnimationFrame(animateFrutas);
+  animFrutas = requestAnimationFrame(animateFrutas);
 }
-
 animateFrutas();
 
 // === Cubos de hielo flotantes ===
@@ -114,18 +128,11 @@ const cuboSources = [
 ];
 
 const cubosContainer = document.querySelector('.cubos');
-const totalCubos = 12;
+const totalCubos = esMovil() ? 5 : 12;
 const cubos = [];
 
 for (let i = 0; i < totalCubos; i++) {
-  let cuboData;
-
-  if (i === 0) {
-    cuboData = cuboSources.find(c => c.once);
-  } else {
-    cuboData = cuboSources[i % 2];
-  }
-
+  let cuboData = (i === 0) ? cuboSources.find(c => c.once) : cuboSources[i % 2];
   const cubo = document.createElement('img');
   cubo.src = cuboData.src;
   cubo.className = 'cubo';
@@ -148,6 +155,7 @@ for (let i = 0; i < totalCubos; i++) {
   });
 }
 
+let animCubos;
 function animateCubos() {
   cubos.forEach(c => {
     c.x += c.dx;
@@ -162,14 +170,13 @@ function animateCubos() {
     c.el.style.transform = `rotate(${c.rotation}deg)`;
   });
 
-  requestAnimationFrame(animateCubos);
+  animCubos = requestAnimationFrame(animateCubos);
 }
-
 animateCubos();
 
-// === Brasas flotantes en sección burn con interacción ===
+// === Brasas flotantes en sección burn ===
 const brasasContainer = document.querySelector('.slide.burn .brasas');
-const totalBrasas = 420;
+const totalBrasas = esMovil() ? 120 : 420;
 
 for (let i = 0; i < totalBrasas; i++) {
   const brasa = document.createElement('span');
@@ -192,9 +199,9 @@ for (let i = 0; i < totalBrasas; i++) {
   brasasContainer.appendChild(brasa);
 }
 
-// === Destellos energéticos solo en sección burn ===
+// === Destellos energéticos en sección burn ===
 const burnSection = document.querySelector('.slide.burn');
-const totalDestellos = 90;
+const totalDestellos = esMovil() ? 30 : 90;
 
 for (let i = 0; i < totalDestellos; i++) {
   const destello = document.createElement('div');

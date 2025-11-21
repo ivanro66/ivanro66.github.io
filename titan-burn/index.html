@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <!-- Lata flotante para escritorio -->
+  <div class="lata">
+    <img src="assets/titan-burn.png" alt="Titan Burn">
+  </div>
+
   <header>
     <div class="logo">TITAN <span class="burn">BURN</span></div>
     <nav>
@@ -20,14 +25,19 @@
   </header>
 
   <main class="slider">
+    <!-- INTRO -->
     <section class="slide intro">
       <div id="particles-js"></div>
+      <div class="lata-mobile">
+        <img src="assets/titan-burn.png" alt="Titan Burn">
+      </div>
       <div class="content">
         <h1>Descubre el poder de lo inesperado</h1>
         <p>Llega <strong>Titan Burn</strong>, la nueva bebida energética que redefine lo que significa refrescarte, activarte y saborear el momento.</p>
       </div>
     </section>
 
+    <!-- HIELO -->
     <section class="slide hielo">
       <div class="cubos"></div>
       <div class="nieve">
@@ -39,29 +49,32 @@
         <span></span><span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span><span></span>
       </div>
+      <div class="lata-mobile">
+        <img src="assets/titan-burn.png" alt="Titan Burn">
+      </div>
       <div class="content">
         <h1>Refresca tu mundo</h1>
         <p>Cuando el calor abruma, Titan Burn responde con una ola helada. Su fórmula ultra fría no solo sacia: <em>revive</em>.</p>
       </div>
     </section>
 
+    <!-- TROPICAL -->
     <section class="slide tropical">
       <div class="frutas"></div>
+      <div class="lata-mobile">
+        <img src="assets/titan-burn.png" alt="Titan Burn">
+      </div>
       <div class="content">
         <h1>Sabor tropical que enciende tus sentidos</h1>
         <p>Explosión de frutas, energía vibrante y frescura que te transporta al paraíso.</p>
       </div>
     </section>
 
+    <!-- BURN -->
     <section class="slide burn">
-      <div class="brasas">
-        <!-- 30 brasas -->
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
+      <div class="brasas"></div>
+      <div class="lata-mobile">
+        <img src="assets/titan-burn.png" alt="Titan Burn">
       </div>
       <div class="content">
         <h1>Desata tu energía interior y conquista cada reto</h1>
@@ -70,15 +83,13 @@
     </section>
   </main>
 
-  <div class="lata">
-    <img src="assets/titan-burn.png" alt="Titan Burn" />
-  </div>
-
+  <!-- Botones de navegación -->
   <div class="nav-buttons">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <p>Contacto: contacto@titanburn.com</p>
@@ -91,6 +102,7 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
